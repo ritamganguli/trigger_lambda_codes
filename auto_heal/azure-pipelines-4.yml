@@ -1,16 +1,9 @@
-trigger:
-  branches:
-    include:
-    - master  # Adjust the branch name as per your needs
-
 pool:
-  vmImage: 'ubuntu-latest'  # Use a suitable image depending on your requirements
+  vmImage: 'ubuntu-latest'
 
 steps:
 - script: |
-    python -m pip install --upgrade pip
-    pip install selenium
-    pip install openpyxl
-    pip install -r auto_heal/requirements.txt  # If you have any Python package dependencies, list them in requirements.txt
-    python auto_heal/new.py  # Replace "your_selenium_script.py" with your actual Python script name
+    ls  # List contents of the working directory (root of the repository)
+    python auto_heal/new.py
   displayName: 'Run Selenium Test'
+  workingDirectory: $(Build.SourcesDirectory)  # Set the working directory explicitly
