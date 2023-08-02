@@ -41,14 +41,14 @@ for excel_data in excel_data_list:
     lt_options["username"] = username
     lt_options["accessKey"] = access_key
 
+    capabilities = DesiredCapabilities.CHROME.copy()
+    capabilities["goog:loggingPrefs"] = {"browser": "ALL"}
+
     chrome_options = Options()
     chrome_options.add_experimental_option("w3c", True)
     chrome_options.add_experimental_option("platformName", "Windows 11")
     chrome_options.add_experimental_option("browserVersion", "")
-    # Add any other desired options
-
-    capabilities = DesiredCapabilities.CHROME.copy()
-    capabilities["goog:chromeOptions"] = chrome_options.to_capabilities()
+    chrome_options.add_experimental_option("LT:Options", lt_options)
 
     driver = webdriver.Remote(
         command_executor=f"https://{grid_url}",
