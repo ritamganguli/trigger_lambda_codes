@@ -3,6 +3,8 @@ import openpyxl
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import TimeoutException
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
 # Function to read data from Excel
 def read_excel_data(file_path, sheet_name):
@@ -39,23 +41,19 @@ for excel_data in excel_data_list:
     lt_options["username"] = username
     lt_options["accessKey"] = access_key
 
-    desired_capabilities_1= {
-        "platformName": "Windows 11",
-        "browserName": "Chrome",
-        "browserVersion": "",
-        "name": "My Test Name",
-        "build": "Selenium Sample",
-        "network": True,
-        "visual": True,
-        "video": True,
-        "console": True,
-        "tunnel": False,
-        "LT:Options": lt_options,
-    }
+    chrome_options = Options()
+    chrome_options.add_experimental_option("w3c", True)
+    chrome_options.add_experimental_option("platformName", "Windows 11")
+    chrome_options.add_experimental_option("browserVersion", "")
+    # Add any other desired options
+
+    capabilities = DesiredCapabilities.CHROME.copy()
+    capabilities["goog:chromeOptions"] = chrome_options.to_capabilities()
 
     driver = webdriver.Remote(
         command_executor=f"https://{grid_url}",
-        desired_capabilities=desired_capabilities_1
+        options=chrome_options,
+        desired_capabilities=capabilities
     )
 
     try:
