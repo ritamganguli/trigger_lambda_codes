@@ -1,8 +1,11 @@
 import time
+import os
 import openpyxl
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import TimeoutException
+
+print("Current working directory:", os.getcwd())
 
 # Function to read data from Excel
 def read_excel_data(file_path, sheet_name):
@@ -17,7 +20,7 @@ def read_excel_data(file_path, sheet_name):
     return data_list
 
 # Path to the Excel file and sheet name
-file_path = r"Sheet1.xlsx"
+file_path = "./auto_heal/Sheet1.xlsx"
 sheet_name = "Sheet1"
 
 # Read data from Excel
