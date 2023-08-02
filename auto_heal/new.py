@@ -17,7 +17,7 @@ def read_excel_data(file_path, sheet_name):
     return data_list
 
 # Path to the Excel file and sheet name
-file_path = "./Sheet1.xlsx"
+file_path = "./home/vsts/work/1/s/auto_heal/Sheet1.xlsx"
 sheet_name = "Sheet1"
 
 # Read data from Excel
@@ -44,13 +44,12 @@ for excel_data in excel_data_list:
         "browserName": "Chrome",
         "browserVersion": "",
         "name": "My Test Name",
-        "build": "Auto Heal True",
+        "build": "Selenium Sample",
         "network": True,
         "visual": True,
         "video": True,
         "console": True,
         "tunnel": False,
-        "autoHeal":True,
         "LT:Options": lt_options,
     }
 
