@@ -11,5 +11,5 @@ steps:
     python -m pip install --upgrade pip
     pip install openpyxl
     pip install -r auto_heal/requirements.txt  # If you have any Python package dependencies, list them in requirements.txt
-    python auto_heal/your_selenium_script.py  # Replace "your_selenium_script.py" with your actual Python script name
+    python auto_heal/new.py  # Replace "your_selenium_script.py" with your actual Python script name
   displayName: 'Run Selenium Test'
