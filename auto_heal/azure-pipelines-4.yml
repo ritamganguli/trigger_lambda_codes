@@ -4,6 +4,8 @@ pool:
 steps:
 - script: |
     ls  # List contents of the working directory (root of the repository)
+    pip install openpyxl
+    pip install selenium
     python auto_heal/new.py
   displayName: 'Run Selenium Test'
   workingDirectory: $(Build.SourcesDirectory)  # Set the working directory explicitly
