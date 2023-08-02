@@ -39,7 +39,7 @@ for excel_data in excel_data_list:
     lt_options["username"] = username
     lt_options["accessKey"] = access_key
 
-    desired_capabilities_1= {
+    desired_capabilities= {
         "platformName": "Windows 11",
         "browserName": "Chrome",
         "browserVersion": "",
@@ -56,7 +56,7 @@ for excel_data in excel_data_list:
 
     driver = webdriver.Remote(
         command_executor=f"https://{grid_url}",
-        desired_capabilities=desired_capabilities_1
+        desired_capabilities=desired_capabilities
     )
 
     try:
