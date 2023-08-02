@@ -17,7 +17,7 @@ def read_excel_data(file_path, sheet_name):
     return data_list
 
 # Path to the Excel file and sheet name
-file_path = "./Sheet1.xlsx"
+file_path = "Sheet1.xlsx"
 sheet_name = "Sheet1"
 
 # Read data from Excel
